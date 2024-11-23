@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="PictureConverterHelperWinUI.Pages.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:PictureConverterHelperWinUI.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Margin="10" RowSpacing="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Spacing="10">
+            <Button x:Name="backBtn" Content="选取文件" Tapped="backBtn_Tapped" VerticalAlignment="Top"/>
+            <TextBlock Text="已选定文件：" Grid.Column="1" VerticalAlignment="Center"/>
+            <TextBlock x:Name="displayTb" Grid.Column="2" VerticalAlignment="Center" Foreground="Gold"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1"  Orientation="Horizontal" Spacing="10">
+            <TextBox x:Name="FileTypeTb" PlaceholderText="文件后缀（例如：jpeg）"/>
+            <Button Content="开始转换"  Tapped="Button_Tapped"/>
+        </StackPanel>
+
+        <Button Content="另存为" Grid.Row="2" Tapped="Button_Tapped_1"/>
+        <ContentDialog x:Name="resultDialog" IsPrimaryButtonEnabled="True" PrimaryButtonText="浏览" CloseButtonText="关闭">
+
+        </ContentDialog>
+    </Grid>
+</Page>

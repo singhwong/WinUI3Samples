@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PictureConverterHelperWinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PictureConverterHelperWinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

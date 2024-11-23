@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="FilesSearchDemo.SearchFiles"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:FilesSearchDemo"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Grid RowDefinitions="auto,*">
+        <StackPanel Grid.Row="0" Padding="20">
+            <Button
+                Margin="0,0,0,10"
+                Click="SelectDirectoryButton_Click"
+                Content="Select_Directory" />
+            <TextBox
+                x:Name="DirectoryTextBox"
+                Margin="0,0,0,10"
+                IsReadOnly="True"
+                PlaceholderText="Selected directory path" />
+            <TextBox
+                x:Name="SearchStringTextBox"
+                Margin="0,0,0,10"
+                PlaceholderText="Enter search string" />
+            <Button
+                x:Name="searchButton"
+                Margin="0,0,0,10"
+                Click="SearchButton_Click"
+                Content="Search" />
+            <Button
+                Margin="0,0,0,10"
+                Click="StopButton_Click"
+                Content="Stop" />
+            <ProgressBar
+                x:Name="progressBar"
+                Margin="0,0,0,10"
+                IsIndeterminate="False"
+                Visibility="Visible"
+                Value="0" />
+            <TextBlock x:Name="textBlockFound" />
+            <TextBlock x:Name="textBlockProcessed" />
+        </StackPanel>
+        <controls:DataGrid
+            x:Name="DataGrid"
+            Grid.Row="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            AutoGenerateColumns="False"
+            GridLinesVisibility="Vertical"
+            HeadersVisibility="Column"
+            IsReadOnly="True"
+            SelectionMode="Extended"
+            ItemsSource="{x:Bind DataGridFiles}">
+            <controls:DataGrid.Columns>
+                <controls:DataGridTextColumn Header="Filename" 
+                                             Binding="{Binding Name}"/>
+                <controls:DataGridTextColumn Header="Date Modified" 
+                                             Binding="{Binding DateModified}"/>
+                <controls:DataGridTextColumn Header="Size"
+                                             Binding="{Binding Size}"/>
+                <controls:DataGridTextColumn Header="Path"
+                                             Binding="{Binding Path}"/>
+                <controls:DataGridTextColumn Header="Extension"
+                                             Binding="{Binding Extensions}"/>
+            </controls:DataGrid.Columns>
+        </controls:DataGrid>
+    </Grid>
+</Page>

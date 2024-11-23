@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FilesSearchDemo (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "FilesSearchDemo (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
